@@ -1,0 +1,2 @@
+mpc_figure8:px4_control
+-DCATKIN_DEVEL_PREFIX=/home/universe/px4_ws/devel -DCMAKE_INSTALL_PREFIX=/home/universe/px4_ws/install -G Unix Makefiles

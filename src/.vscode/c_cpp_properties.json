@@ -1,0 +1,26 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/universe/rosdriver_ws/devel/include/**",
+        "/home/universe/ws_livox/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/universe/rosdriver_ws/src/Azure_Kinect_ROS_Driver/include/**",
+        "/home/universe/rosdriver_ws/src/velodyne/velodyne_driver/include/**",
+        "/home/universe/rosdriver_ws/src/velodyne/velodyne_laserscan/include/**",
+        "/home/universe/rosdriver_ws/src/velodyne/velodyne_pointcloud/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

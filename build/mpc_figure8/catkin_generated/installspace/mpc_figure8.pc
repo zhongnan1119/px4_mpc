@@ -1,0 +1,8 @@
+prefix=/home/universe/px4_ws/install
+
+Name: mpc_figure8
+Description: Description of mpc_figure8
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
