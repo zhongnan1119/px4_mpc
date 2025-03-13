@@ -467,6 +467,12 @@ mpc_figure8_BINARY_DIR:STATIC=/home/universe/px4_ws/build/mpc_figure8
 //Value Computed by CMake
 mpc_figure8_SOURCE_DIR:STATIC=/home/universe/px4_ws/src/mpc_figure8
 
+//Value Computed by CMake
+mpc_quadrotor_BINARY_DIR:STATIC=/home/universe/px4_ws/build/mpc_quadrotor
+
+//Value Computed by CMake
+mpc_quadrotor_SOURCE_DIR:STATIC=/home/universe/px4_ws/src/mpc_quadrotor
+
 //The directory containing a CMake configuration file for numpy.
 numpy_DIR:PATH=numpy_DIR-NOTFOUND
 
@@ -476,11 +482,20 @@ px4_control_BINARY_DIR:STATIC=/home/universe/px4_ws/build/px4_control
 //Value Computed by CMake
 px4_control_SOURCE_DIR:STATIC=/home/universe/px4_ws/src/px4_control
 
+//The directory containing a CMake configuration file for rosconsole.
+rosconsole_DIR:PATH=/opt/ros/noetic/share/rosconsole/cmake
+
+//The directory containing a CMake configuration file for roscpp.
+roscpp_DIR:PATH=/opt/ros/noetic/share/roscpp/cmake
+
 //The directory containing a CMake configuration file for roscpp_serialization.
 roscpp_serialization_DIR:PATH=/opt/ros/noetic/share/roscpp_serialization/cmake
 
 //The directory containing a CMake configuration file for roscpp_traits.
 roscpp_traits_DIR:PATH=/opt/ros/noetic/share/roscpp_traits/cmake
+
+//The directory containing a CMake configuration file for rosgraph_msgs.
+rosgraph_msgs_DIR:PATH=/opt/ros/noetic/share/rosgraph_msgs/cmake
 
 //The directory containing a CMake configuration file for rospy.
 rospy_DIR:PATH=/opt/ros/noetic/share/rospy/cmake
@@ -496,6 +511,9 @@ std_msgs_DIR:PATH=/opt/ros/noetic/share/std_msgs/cmake
 
 //The directory containing a CMake configuration file for uuid_msgs.
 uuid_msgs_DIR:PATH=/opt/ros/noetic/share/uuid_msgs/cmake
+
+//The directory containing a CMake configuration file for xmlrpcpp.
+xmlrpcpp_DIR:PATH=/opt/ros/noetic/share/xmlrpcpp/cmake
 
 
 ########################
@@ -645,7 +663,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=6
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=7
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

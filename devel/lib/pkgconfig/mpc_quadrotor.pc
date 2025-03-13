@@ -1,0 +1,8 @@
+prefix=/home/universe/px4_ws/devel
+
+Name: mpc_quadrotor
+Description: Description of mpc_quadrotor
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

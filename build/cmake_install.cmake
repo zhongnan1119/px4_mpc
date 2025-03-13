@@ -132,6 +132,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/universe/px4_ws/build/gtest/cmake_install.cmake")
   include("/home/universe/px4_ws/build/mpc_figure8/cmake_install.cmake")
+  include("/home/universe/px4_ws/build/mpc_quadrotor/cmake_install.cmake")
   include("/home/universe/px4_ws/build/px4_control/cmake_install.cmake")
 
 endif()
