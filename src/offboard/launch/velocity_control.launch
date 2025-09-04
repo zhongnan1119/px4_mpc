@@ -1,0 +1,7 @@
+<launch>
+
+    <node pkg="offboard" type="offb_vel_node" name="px4_velocity_control_node" output="screen" >
+            <!-- <remap from="/path" to="/initial_path"/> -->
+    </node>
+
+</launch>
