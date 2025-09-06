@@ -29,10 +29,12 @@ rosrun offboard offb_vel_node
 ```
 #### 启动MPC控制器
 ```
-roslaunch pseudo_path pseudo_path.launch 
-roslaunch controller mpc_controller_sim.launch 
+roslaunch pseudo_path pseudo_path.launch
+roslaunch controller mpc_controller_sim.launch
 ```
 #### 启动ego_planner
 ```
 roslaunch ego_planner_v2 single_drone_waypoints.launch #修改代码以适应MPC控制器
 ```
+
+其中 `pseudo_path.launch` 默认发布一个“8”字形的基准路径，可通过修改 `path_num` 参数来切换其他路径。
