@@ -27,12 +27,14 @@ python3 /root/XTDrone/sensing/pose_ground_truth/get_local_pose.py iris 1
 ```
 rosrun offboard offb_vel_node 
 ```
-#### 启动MPC控制器
+#### 启动MPC控制器并绕八字
 ```
-roslaunch pseudo_path pseudo_path.launch 
-roslaunch controller mpc_controller_sim.launch 
+roslaunch pseudo_path pseudo_path.launch path_num:=3
+roslaunch controller mpc_controller_sim.launch
 ```
-#### 启动ego_planner
+
+#### 性能评估
+记录飞行数据后，可使用脚本生成误差曲线并评估响应时间：
 ```
-roslaunch ego_planner_v2 single_drone_waypoints.launch #修改代码以适应MPC控制器
+python3 src/scripts/mpc_performance.py your_record.bag
 ```
