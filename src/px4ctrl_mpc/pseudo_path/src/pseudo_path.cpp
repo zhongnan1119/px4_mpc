@@ -40,6 +40,7 @@ protected:
 
   geometry_msgs::PoseArray getRealPath();
   geometry_msgs::PoseArray pseudoNextPath2();
+  geometry_msgs::PoseArray pseudoFigureEightPath();
 
   Eigen::Quaterniond
   differentialDirectionPoint(const geometry_msgs::Point &start_p,
@@ -99,6 +100,8 @@ void RefPath::run() {
       base_path = getRealPath();
     } else if (path_num_ == 2) {
       base_path = pseudoNextPath2();
+    } else if (path_num_ == 8) {
+      base_path = pseudoFigureEightPath();
     }
 
     // std::cout << "base_path=======" << base_path << std::endl;
@@ -284,6 +287,68 @@ geometry_msgs::PoseArray RefPath::pseudoNextPath2() {
     }
   }
   for (int k = 0; k < pathlength; k++) {
+    pseudo_path_pose.orientation.w = path_q_w[k];
+    pseudo_path_pose.orientation.x = path_q_x[k];
+    pseudo_path_pose.orientation.y = path_q_y[k];
+    pseudo_path_pose.orientation.z = path_q_z[k];
+
+    pseudo_path_pose.position.x = path_p_x[k];
+    pseudo_path_pose.position.y = path_p_y[k];
+    pseudo_path_pose.position.z = path_p_z[k];
+
+    path.poses.push_back(pseudo_path_pose);
+  }
+
+  return path;
+}
+
+geometry_msgs::PoseArray RefPath::pseudoFigureEightPath() {
+  geometry_msgs::PoseArray path;
+  path.poses.clear();
+
+  path.header.frame_id = "world";
+  path.header.stamp = ros::Time::now();
+
+  const int pathlength = 200;
+  geometry_msgs::Pose pseudo_path_pose;
+  double path_p_x[pathlength], path_p_y[pathlength], path_p_z[pathlength];
+  double path_q_w[pathlength], path_q_x[pathlength], path_q_y[pathlength],
+      path_q_z[pathlength];
+
+  // Generate a simple figure-eight trajectory in the XY plane
+  for (int i = 0; i < pathlength; ++i) {
+    double t = 2 * M_PI * static_cast<double>(i) / (pathlength - 1);
+    path_p_x[i] = 2.0 * std::sin(t);
+    path_p_y[i] = 2.0 * std::sin(t) * std::cos(t);
+    path_p_z[i] = -1.63; // keep constant altitude
+  }
+
+  for (int j = 0; j < pathlength; ++j) {
+    if (j == pathlength - 1) {
+      path_q_w[j] = 1;
+      path_q_x[j] = 0;
+      path_q_y[j] = 0;
+      path_q_z[j] = 0;
+    } else {
+      geometry_msgs::Point start_p;
+      start_p.x = path_p_x[j];
+      start_p.y = path_p_y[j];
+      start_p.z = path_p_z[j];
+
+      geometry_msgs::Point end_p;
+      end_p.x = path_p_x[j + 1];
+      end_p.y = path_p_y[j + 1];
+      end_p.z = path_p_z[j + 1];
+
+      Eigen::Quaterniond q = differentialDirectionPoint(start_p, end_p);
+      path_q_w[j] = q.w();
+      path_q_x[j] = q.x();
+      path_q_y[j] = q.y();
+      path_q_z[j] = q.z();
+    }
+  }
+
+  for (int k = 0; k < pathlength; ++k) {
     pseudo_path_pose.orientation.w = path_q_w[k];
     pseudo_path_pose.orientation.x = path_q_x[k];
     pseudo_path_pose.orientation.y = path_q_y[k];

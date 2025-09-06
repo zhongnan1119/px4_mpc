@@ -1,5 +1,5 @@
 <launch>
-    <param name="path_num" type="int" value="0" />
+    <param name="path_num" type="int" value="8" />
     <param name="path_length" type="int" value="10" />
     <arg name="TOPIC" default="/reference/polynomial"/>
     <param name="topic" value="$(arg TOPIC)" />
